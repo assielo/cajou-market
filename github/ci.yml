@@ -1,0 +1,25 @@
+name: CajouMarket CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  php-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Récupération du code source
+      uses: actions/checkout@v4
+
+    - name: Configuration de PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: pdo, pdo_mysql, mbstring
+
+    - name: Vérification de la syntaxe PHP (Lint)
+      run: |
+        find . -name "*.php" -print0 | xargs -0 -n1 php -l

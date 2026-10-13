@@ -1,0 +1,15 @@
+# Protection contre l'affichage du contenu des dossiers
+Options -Indexes
+
+# Sécurisation des en-têtes HTTP
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Protection des fichiers de configuration sensibles
+<FilesMatch "^\.(env|git|htaccess)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

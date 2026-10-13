@@ -1,0 +1,28 @@
+# Dépendances PHP (Composer)
+/vendor/
+
+# Fichiers d'environnement et secrets
+.env
+
+# Dossiers de stockage des données dynamiques (Uploads & Backups)
+/backups/*
+!/backups/.gitkeep
+/uploads/*
+!/uploads/.gitkeep
+
+# Fichiers de logs et rapports d'erreurs
+*.log
+/logs/
+
+# Fichiers système et IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers temporaires de l'OS ou de l'éditeur
+*~
+*.swp
+*.swo
